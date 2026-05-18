@@ -93,3 +93,11 @@ function eliminarTarea(){
         modalEliminar.show()
     }
 }
+
+let btnDelete = document.getElementById("btnDelete");
+btnDelete.addEventListener("click", deleteTarea);
+function deleteTarea(){
+    modalEditar.hide();
+    tareas = tareas.filter(t=>t!=tareas[i]); //asigna tarea nueva pos i
+    listarTareas(tareas);
+}

@@ -41,3 +41,23 @@ function agregarTarea() {
     }
 }
 }
+let modalEditar = new bootstrap.Modal(document.getElementById("modalEditar")); //crea modal de bootstrap
+let btnEditar = document.getElementById("btnEditar"); //captura btn
+btnEditar.addEventListener("click", buscarTareaEditar);
+let i = 0;
+function buscarTareaEditar(){
+    let tarea_buscada = document.getElementById("txtTarea").value; //captura input
+    i = tareas.findIndex((tarea) => tarea == tarea_buscada); //busca la tarea en el array
+    if (i == -1) { //si no se encuentra nd
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No hay tarea para editar con ese nombre",
+            footer: "",
+        });
+     } else {
+        let tituloModal = document.getElementById("modalEditarLabel"); //captura título d modal
+        tituloModal.textContent = "Editando " + tareas[i]; //asigna titulo
+        modalEditar.show(); //lomuestralol
+     };
+}

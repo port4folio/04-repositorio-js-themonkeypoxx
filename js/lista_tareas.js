@@ -70,3 +70,26 @@ function guardarTarea(){
     tareas[i] = tarea_nueva; //asigna tarea en posición i
     listarTareas(tareas); //llama a listar tareas para listar las tareas xdxd ejjjeje
 }
+
+
+let modalEliminar = new bootstrap.Modal(
+    document.getElementById("modalEliminar")
+);
+let btnEliminar = document.getElementById("btnEliminar");
+btnEliminar.addEventListener("click", eliminarTarea);
+function eliminarTarea(){
+    let tarea_buscada = document.getElementById("tarea").value;
+    i = tareas.findIndex((tarea) => tarea == tarea_buscada);
+    if (i == -1){
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No existe esa tarea que quieres eliminar.",
+            footer: "",
+        });
+    } else {
+        let tituloModal = document.getElementById("modalEliminarLabel");
+        tituloModal.textContent = "Eliminando" + tareas[i];
+        modalEliminar.show()
+    }
+}

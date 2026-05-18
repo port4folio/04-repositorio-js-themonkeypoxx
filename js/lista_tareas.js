@@ -61,3 +61,12 @@ function buscarTareaEditar(){
         modalEditar.show(); //lomuestralol
      };
 }
+
+let btnGuardar = document.getElementById("btnGuardar");
+btnGuardar.addEventListener("click", guardarTarea);
+function guardarTarea(){
+    let tarea_nueva = document.getElementById("tarea_nueva").value; //captura input
+    modalEditar.hide(); //oculta modal
+    tareas[i] = tarea_nueva; //asigna tarea en posición i
+    listarTareas(tareas); //llama a listar tareas para listar las tareas xdxd ejjjeje
+}

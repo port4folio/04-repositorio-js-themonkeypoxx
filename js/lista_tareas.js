@@ -78,7 +78,7 @@ let modalEliminar = new bootstrap.Modal(
 let btnEliminar = document.getElementById("btnEliminar");
 btnEliminar.addEventListener("click", eliminarTarea);
 function eliminarTarea(){
-    let tarea_buscada = document.getElementById("tarea").value;
+    let tarea_buscada = document.getElementById("txtTarea").value;
     i = tareas.findIndex((tarea) => tarea == tarea_buscada);
     if (i == -1){
         Swal.fire({
@@ -89,7 +89,7 @@ function eliminarTarea(){
         });
     } else {
         let tituloModal = document.getElementById("modalEliminarLabel");
-        tituloModal.textContent = "Eliminando" + tareas[i];
+        tituloModal.textContent = "Eliminando " + tareas[i];
         modalEliminar.show()
     }
 }
